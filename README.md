@@ -8,9 +8,8 @@ Welcome to the Tic-Tac-Toe Game! This is a simple web application built using Re
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-- [How to Play](#how-to-play)
 - [Project Structure](#project-structure)
-- [License](#license)
+- [Things I learned from the Project](#learning)
 
 ## Demo
 
@@ -44,5 +43,63 @@ To get a local copy of the project up and running on your machine, follow these 
 ### Installation
 
 1. Clone the repository:
-   ```sh
+```sh
    git clone https://github.com/yourusername/tic-tac-toe.git
+```
+
+2. Navigate to the project directory:
+```sh
+   cd tic-tac-toe
+```
+
+3. Install the dependencies:
+```sh
+   npm install
+```
+
+4. Start the development server:
+```sh
+   npm start
+```
+
+## Project stucture
+
+tic-tac-toe/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   └── Player.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   ├── index.jsx
+|   └── ...
+├── .gitignore
+├── package.json
+└── README.md
+
+## Things I learned from the Project
+
+1. State Updates in React
+
+When updating state in React, especially if the new state depends on the previous state, it's important to pass a function to the state updating function instead of directly passing the new state value.
+
+### Incorrect Approach
+Consider the following example where we toggle a boolean state:
+
+```jsx
+setIsEditing(!isEditing);
+```
+
+This might seem straightforward, but it can lead to unexpected behavior due to how React schedules state updates. React batches multiple state updates for performance reasons, meaning the state might not be updated immediately.
+
+### Correct Approach
+Instead, you should use a function that receives the previous state and returns the new state. This ensures that you are working with the most current state value, even if multiple updates are batched together:
+
+```jsx
+setIsEditing((prevIsEditing) => !prevIsEditing);
+```
+
+### Why is This Important?
+React may schedule state updates asynchronously. If you use the incorrect approach, you might be working with a stale state value, leading to bugs and unpredictable behavior.
