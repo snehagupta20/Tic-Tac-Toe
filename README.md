@@ -8,7 +8,6 @@ Welcome to the Tic-Tac-Toe Game! This is a simple web application built using Re
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
 - [Things I learned from the Project](#learning)
 
 ## Demo
@@ -62,22 +61,6 @@ To get a local copy of the project up and running on your machine, follow these 
    npm start
 ```
 
-## Project stucture
-
-tic-tac-toe/
-├── public/
-│   ├── index.html
-│   └── ...
-├── src/
-│   ├── components/
-│   │   └── Player.jsx
-│   ├── App.jsx
-│   ├── index.css
-│   ├── index.jsx
-|   └── ...
-├── .gitignore
-├── package.json
-└── README.md
 
 ## Things I learned from the Project
 

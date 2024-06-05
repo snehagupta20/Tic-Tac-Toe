@@ -10,20 +10,26 @@ const Player = ({Initialname,symbol}) => {
 
 
     let btn="Edit";
-    let editiblePlayerName=<span className='player-name'>{Initialnamename}</span>;
+    let editiblePlayerName=<span className='player-name'>{Initialname}</span>;
     function handleClick(){
         
 
         setIsEditing((editing) => !editing);
     }
 
+    function handleChange(event){
+        setPlayerName(event.target.value);
+    }
+
     if(isEditing){
-        editiblePlayerName = <input type="text" required value={Initialname}></input>;
+        editiblePlayerName = <input type="text" required value={Initialname} onChange={handleChange}></input>;
         btn="Save"; 
     }
     else{
         btn="Edit";
     }
+
+    
 
     return (
         <div>
