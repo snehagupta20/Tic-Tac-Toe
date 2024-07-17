@@ -86,3 +86,22 @@ setIsEditing((prevIsEditing) => !prevIsEditing);
 
 ### Why is This Important?
 React may schedule state updates asynchronously. If you use the incorrect approach, you might be working with a stale state value, leading to bugs and unpredictable behavior.
+
+
+2. state update with an object or array
+
+if your state is an object or array, you should update them in an immutable way. which means, you should create a copy of your old state ie, a new object or arr and change that new copy, instead of that existing one.
+
+### incorrect approach
+
+const updateUser = user;
+user.name = "max";
+
+### correct approach
+
+const updateUser = {...user};
+updateUser.name = "max";
+
+### reason:
+
+

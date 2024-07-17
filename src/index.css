@@ -62,7 +62,7 @@ h1 {
   padding: 0;
   margin: 1rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
 }
@@ -72,6 +72,7 @@ h1 {
   align-items: center;
   width: 50%;
   border: 2px solid transparent;
+  margin-right: 2rem;
 }
 
 #players.highlight-player li.active {
@@ -105,6 +106,8 @@ h1 {
   padding: 0.5rem;
   border-radius: 4px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .player-name {
