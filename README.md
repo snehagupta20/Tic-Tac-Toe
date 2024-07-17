@@ -64,11 +64,11 @@ To get a local copy of the project up and running on your machine, follow these 
 
 ## Things I learned from the Project
 
-1. State Updates in React
+### 1. State Updates in React
 
 When updating state in React, especially if the new state depends on the previous state, it's important to pass a function to the state updating function instead of directly passing the new state value.
 
-### Incorrect Approach
+-> Incorrect Approach
 Consider the following example where we toggle a boolean state:
 
 ```jsx
@@ -77,31 +77,33 @@ setIsEditing(!isEditing);
 
 This might seem straightforward, but it can lead to unexpected behavior due to how React schedules state updates. React batches multiple state updates for performance reasons, meaning the state might not be updated immediately.
 
-### Correct Approach
+-> Correct Approach
 Instead, you should use a function that receives the previous state and returns the new state. This ensures that you are working with the most current state value, even if multiple updates are batched together:
 
 ```jsx
 setIsEditing((prevIsEditing) => !prevIsEditing);
 ```
 
-### Why is This Important?
+-> Why is This Important?
 React may schedule state updates asynchronously. If you use the incorrect approach, you might be working with a stale state value, leading to bugs and unpredictable behavior.
 
 
-2. state update with an object or array
+### 2. state update with an object or array
 
 if your state is an object or array, you should update them in an immutable way. which means, you should create a copy of your old state ie, a new object or arr and change that new copy, instead of that existing one.
 
-### incorrect approach
+-> incorrect approach
 
+```jsx
 const updateUser = user;
 user.name = "max";
+```
 
-### correct approach
+-> correct approach
 
 const updateUser = {...user};
 updateUser.name = "max";
 
-### reason:
+-> reason:
 
 
