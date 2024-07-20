@@ -95,15 +95,24 @@ if your state is an object or array, you should update them in an immutable way.
 -> incorrect approach
 
 ```jsx
-const updateUser = user;
-user.name = "max";
+const updateUser = user; //user is an object, not creating a copy
+user.name = "max"; //editing the user object in memory
 ```
 
 -> correct approach
 
-const updateUser = {...user};
-updateUser.name = "max";
+```jsx
+const updateUser = {...user}; //creating a copy via js' "spread" operator
+updateUser.name = "max"; //updating the copy, not the original array
+```
 
 -> reason:
 
+if your state is an object or an array, you are dealing with a reference value in javascript. 
+Therefore if you would be updating it directly (incorrect approach), you would be updating the old value in memory immedietly, even before this scheduled state update was executed by react.
+now just think about that for a moment. the value is alredy updated in the memory. and when the state is called, the value will again change.
+this wont give an errors or any bug when the project is small, or when the state is not being called many times. but in a large project, where a single state is called many times, this can give a bug.
 
+
+to know more about reference and primitive values:
+[click here](https://academind.com/tutorials/reference-vs-primitive-values)
