@@ -12,17 +12,19 @@ const GameBoard = () => {
 
     function handleGameBoard(rowIdx, colIdx){
         setGameBoard((prevGameBoard)=> {
-            prevGameBoard[rowIdx][colIdx]='X';
-            return prevGameBoard;
+            //updating state in immutable state - refer readMe.md for more information
+            const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
+            updatedBoard[rowIdx][colIdx]='X';
+            return updatedBoard;
         });
     }
 
   return (
     <ol id='game-board'>
-        {initialGameBoard.map((row, rowIdx) => <li key={rowIdx}>
+        {gameBoard.map((row, rowIdx) => <li key={rowIdx}>
             <ol>
                 {row.map((symbol, colIdx) => <li key={colIdx}>
-                    <button onClick={handleGameBoard}>{symbol}</button>
+                    <button onClick={() => handleGameBoard(rowIdx, colIdx)}>{symbol}</button>
                 </li>)}
             </ol>
         </li>)} 
