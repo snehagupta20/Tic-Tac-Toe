@@ -10,7 +10,6 @@ const Player = ({Initialname,symbol,isActive}) => {
   }
 
   function handleChange(event){
-    // console.log(event);
     setIsName(event.target.value);
   }
 
