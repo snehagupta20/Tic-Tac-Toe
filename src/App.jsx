@@ -32,7 +32,7 @@ const App = () => {
         </ol>
         <GameBoard onSelectSq={handleSelectSquare} turns={gameTurns}></GameBoard>
       </div>
-      <Log></Log>
+      <Log gameTurns={gameTurns}></Log>
     </main>
   )
 }
