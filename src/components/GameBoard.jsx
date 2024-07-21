@@ -6,7 +6,7 @@ const initialGameBoard = [
     [null,null,null],
 ];
 
-const GameBoard = () => {
+const GameBoard = ({ onSelectSq, activeSymbol }) => {
     
     const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
@@ -14,9 +14,11 @@ const GameBoard = () => {
         setGameBoard((prevGameBoard)=> {
             //updating state in immutable state - refer readMe.md for more information
             const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
-            updatedBoard[rowIdx][colIdx]='X';
+            updatedBoard[rowIdx][colIdx]=activeSymbol;
             return updatedBoard;
         });
+
+        onSelectSq();
     }
 
   return (
